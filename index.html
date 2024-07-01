@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="https://codemaster.ltd/cdn/shop/files/codemaster_1.jpg?v=1719057471&width=140" type="image/png">
+<link rel="stylesheet" href="styles.css">
+<title>Code Master Challenge</title>
+</head>
+<body>
+    <img href="www.codemastler.ltd" id="author-img" src="https://codemaster.ltd/cdn/shop/files/codemaster_1.jpg?v=1719057471&width=140" alt="Code Master" class="logo1">
+    <h1>Code Master Challenge</h1>
+    <h1 class="line">______________________</h1>
+    <div class="question">
+      <p id="question-text">Loading...</p>
+      <div class="options">
+        <div class="option" onclick="checkAnswer(this, 0)"></div>
+        <div class="option" onclick="checkAnswer(this, 1)"></div>
+        <div class="option" onclick="checkAnswer(this, 2)"></div>
+        <div class="option" onclick="checkAnswer(this, 3)"></div>
+      </div>
+      <div class="timer" id="timer">20</div>
+    </div>
+    <div id="score">Score: 0</div>
+    <button id="restart" class="button" style="display: none;">Restart Quiz</button>
+    <div id="gift-card" class="hidden">
+      <p class="congrats">Congratulations! You've achieved the highest score!</p>
+      <div class="card">
+        <img href="www.codemastler.ltd" id="author-img" src="https://codemaster.ltd/cdn/shop/files/codemaster_1.jpg?v=1719057471&width=140" alt="Code Master" class="logo">
+        <h3>Code Master Gift Card</h3>
+        <p id="discount"></p>
+        <h4 class="code" onclick="copyCode()" id="code"> Click To Copy Code!</h4>
+      </div>
+      <div id="copy-message" class="copy-message hidden">Code Copied!</div>
+    </div>
+    <script src="script.js" type="module"></script>
+    </body>
+</html>

@@ -1,0 +1,176 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #3f3f3f;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    color: #3636367c;
+    margin-top: 20px;
+    font-size: 50px;
+    text-shadow: #e101ff -4px 0 5px, #21a2f8 4px 0 5px, #e101ff 0 4px 5px, #21a2f8 0 -4px 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+
+  .line {
+    color: #ffffff00;
+    margin-top: -80px;
+    margin-bottom: 40px;
+    font-size: 60px;
+    text-shadow: #e101ff 0 4px 5px, #21a2f8 0 -4px 5px, #e101ff -4px 0 5px, #21a2f8 4px 0 5px, ;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  .question {
+    margin: 20px;
+    color: white;
+  }
+  
+  .options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .option {
+    padding: 15px 30px;
+    border: 2px solid #b8b8b8;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+  
+  .option:hover {
+    background-color: #21a2f8;
+    box-shadow: #e101ff -4px 0 5px, #21a2f8 4px 0 5px, #e101ff 0 4px 5px, #21a2f8 0 -4px 5px;
+
+  }
+  
+  .option.correct {
+    background-color: #4caf50;
+    border-color: #4caf50;
+    box-shadow: #4caf50 0 0 20px;
+    color: #000;
+    font-weight: 600;
+  }
+  
+  .option.incorrect {
+    background-color: #f44336;
+    border-color: #f44336;
+    box-shadow: #f44336 0 0 20px;
+    color: #000;
+    font-weight: 600;
+  }
+
+  @keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes flash1 {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  #timer.flash {
+    animation: flash 1s infinite;
+  }
+  
+  .timer {
+    font-size: 24px;
+    margin-top: 20px;
+    color: green;
+  }
+  
+  #score {
+    font-size: 20px;
+    margin-top: 20px;
+    color: white;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #gift-card {
+    margin-top: 30px;
+  }
+  
+  .card {
+    border: 2px solid #21a2f8;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #8181817e;
+    display: inline-block;
+    width: 300px;
+    box-shadow: 4px -4px 10px black, -1px 1px 10px black;
+  }
+
+  .logo1 {
+    margin-top: 20px;
+  }
+  
+  .logo, .logo1 {
+    width: 100px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    box-shadow: #e101ff -4px 0 5px, #21a2f8 4px 0 5px, #e101ff 0 4px 5px, #21a2f8 0 -4px 5px;
+  }
+  
+  .card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .card .code {
+    font-weight: bold;
+    cursor: pointer;
+    color: #21a2f8;
+    background-color: #313131;
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .card .code:hover {
+    text-decoration: underline;
+  }
+
+  .copy-message {
+    margin-top: -30px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .button {
+    margin-top: 50px;
+    color: #21a2f8;
+    background-color: #000;
+    border-radius: 20px;
+    border: #e101ff 1px solid;
+    padding: 5px 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #21a2f8, 0 0 12px #e101ff;
+  }
+
+  .button:hover {
+    color: #e101ff;
+    background-color: #000;
+    border-radius: 20px;
+    border: #21a2f8 1px solid;
+    padding: 5px 5px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #e101ff, 0 0 12px #21a2f8;
+  }
+
+  .congrats {
+    color: white;
+    animation: flash1 2s infinite;
+  }
