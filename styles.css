@@ -4,150 +4,173 @@ body {
     background-color: #3f3f3f;
     margin: 0;
     padding: 0;
-  }
+}
   
-  h1 {
+h1 {
     color: #3636367c;
     margin-top: 20px;
-    font-size: 50px;
-    text-shadow: #e101ff -4px 0 5px, #21a2f8 4px 0 5px, #e101ff 0 4px 5px, #21a2f8 0 -4px 5px;
+    font-size: 40px;
+    text-shadow: #e101ff -4px 0 5px, #21a2f8 4px 0 5px, #e101ff 0 4px 5px, #21a2f8 0 -4px 5px , black 0 0 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
+}
 
-  .line {
+.line {
     color: #ffffff00;
-    margin-top: -80px;
-    margin-bottom: 40px;
-    font-size: 60px;
-    text-shadow: #e101ff 0 4px 5px, #21a2f8 0 -4px 5px, #e101ff -4px 0 5px, #21a2f8 4px 0 5px, ;
+    margin-top: -50px;
+    margin-bottom: 20px;
+    font-size: 40px;
+    text-shadow: #e101ff 0 4px 5px, #21a2f8 0 -4px 5px, #e101ff -4px 0 5px, #21a2f8 4px 0 5px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
+}
+
+.line1 {
+    color: #ffffff00;
+    font-size: 40px;
+    text-shadow: #e101ff 0 4px 5px, #21a2f8 0 -4px 5px, #e101ff -4px 0 5px, #21a2f8 4px 0 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.logo2 {
+    max-width: 30px;
+    border-radius: 20px;
+    z-index: 3;
+    vertical-align: middle;
+    box-shadow: #018dff 0 0 10px;
+}
   
-  .question {
+.question {
+    position: relative;
     margin: 20px;
     color: white;
-  }
+    font-size: 16px;
+}
   
-  .options {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+.options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
     margin-top: 20px;
-  }
+    place-content: center;
+}
   
-  .option {
-    padding: 15px 30px;
+.option {
+    padding: 10px 5px;
     border: 2px solid #b8b8b8;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, border-color 0.3s;
-  }
+    text-align: center;
+    width: 90%;
+    justify-self: center; /* Center each option within the grid */
+    box-shadow: #000 0 0 10px;
+}
   
-  .option:hover {
+.option:hover {
     background-color: #21a2f8;
     box-shadow: #e101ff -4px 0 5px, #21a2f8 4px 0 5px, #e101ff 0 4px 5px, #21a2f8 0 -4px 5px;
-
-  }
+}
   
-  .option.correct {
+.option.correct {
     background-color: #4caf50;
     border-color: #4caf50;
     box-shadow: #4caf50 0 0 20px;
     color: #000;
     font-weight: 600;
-  }
+}
   
-  .option.incorrect {
+.option.incorrect {
     background-color: #f44336;
     border-color: #f44336;
     box-shadow: #f44336 0 0 20px;
     color: #000;
     font-weight: 600;
-  }
+}
 
-  @keyframes flash {
+@keyframes flash {
     0% { opacity: 1; }
     50% { opacity: 0.5; }
     100% { opacity: 1; }
-  }
+}
 
-  @keyframes flash1 {
+@keyframes flash1 {
     0% { opacity: 1; }
     50% { opacity: 0; }
     100% { opacity: 1; }
-  }
+}
   
-  #timer.flash {
+#timer.flash {
     animation: flash 1s infinite;
-  }
+}
   
-  .timer {
+.timer {
     font-size: 24px;
     margin-top: 20px;
     color: green;
-  }
+}
   
-  #score {
-    font-size: 20px;
+#score {
+    font-size: 24px;
     margin-top: 20px;
     color: white;
-  }
+}
   
-  .hidden {
+.hidden {
     display: none;
-  }
+}
   
-  #gift-card {
-    margin-top: 30px;
-  }
+#gift-card {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
   
-  .card {
+.card {
     border: 2px solid #21a2f8;
     border-radius: 12px;
     padding: 20px;
     background-color: #8181817e;
     display: inline-block;
-    width: 300px;
+    width: 90%;
+    max-width: 300px;
     box-shadow: 4px -4px 10px black, -1px 1px 10px black;
-  }
+}
 
-  .logo1 {
+.logo1 {
     margin-top: 20px;
-  }
+}
   
-  .logo, .logo1 {
-    width: 100px;
+.logo, .logo1 {
+    width: 80px;
     margin-bottom: 10px;
-    border-radius: 20px;
-    box-shadow: #e101ff -4px 0 5px, #21a2f8 4px 0 5px, #e101ff 0 4px 5px, #21a2f8 0 -4px 5px;
-  }
+    border-radius: 50px;
+    box-shadow: #e101ff -4px 0 5px, #21a2f8 4px 0 5px, #e101ff 0 4px 5px, #21a2f8 0 -4px 5px , black 0 0 50px;
+}
   
-  .card-title {
+.card-title {
     font-size: 20px;
     font-weight: bold;
     margin: 10px 0;
-  }
+}
   
-  .card .code {
+.card .code {
     font-weight: bold;
     cursor: pointer;
     color: #21a2f8;
     background-color: #313131;
     padding: 5px;
     border-radius: 5px;
-  }
+}
   
-  .card .code:hover {
+.card .code:hover {
     text-decoration: underline;
-  }
+}
 
-  .copy-message {
+.copy-message {
     margin-top: -30px;
     font-size: 18px;
     font-weight: bold;
-  }
+}
   
-  .button {
+.button {
     margin-top: 50px;
     color: #21a2f8;
     background-color: #000;
@@ -157,9 +180,9 @@ body {
     font-size: 16px;
     cursor: pointer;
     box-shadow: 0 0 10px #21a2f8, 0 0 12px #e101ff;
-  }
+}
 
-  .button:hover {
+.button:hover {
     color: #e101ff;
     background-color: #000;
     border-radius: 20px;
@@ -168,9 +191,31 @@ body {
     font-size: 16px;
     cursor: pointer;
     box-shadow: 0 0 10px #e101ff, 0 0 12px #21a2f8;
-  }
+}
 
-  .congrats {
+.congrats {
     color: white;
     animation: flash1 2s infinite;
-  }
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 50px;
+    }
+    .line, .line1 {
+        font-size: 60px;
+    }
+    .timer, #score {
+        font-size: 30px;
+    }
+    .options {
+        grid-template-columns: repeat(2, .1fr);
+        gap: 20px;
+    }
+    .option {
+        width: 300px;
+    }
+    .card {
+        width: 300px;
+    }
+}
