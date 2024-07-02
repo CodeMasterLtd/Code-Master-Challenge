@@ -162,7 +162,7 @@ function endGame() {
     Discode.innerText = discountDetails.code;
     document.getElementById('timer').innerText = 'GAME FINISHED';
 
-    if (score === maxScore) {
+    if (score > 0) {
         document.getElementById('gift-card').classList.remove('hidden');
     }
 

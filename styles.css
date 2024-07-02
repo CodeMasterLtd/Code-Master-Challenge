@@ -9,7 +9,7 @@ body {
 h1 {
     color: #3636367c;
     margin-top: 20px;
-    font-size: 40px;
+    font-size: 30px;
     text-shadow: #e101ff -4px 0 5px, #21a2f8 4px 0 5px, #e101ff 0 4px 5px, #21a2f8 0 -4px 5px , black 0 0 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
