@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="https://codemaster.ltd/cdn/shop/files/codemaster_1.jpg?v=1719057471&width=140" type="image/png">
 <link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <title id="title"></title>
 </head>
 <body>
@@ -24,14 +25,14 @@
     <div id="score">Your Score: 0</div>
     <button id="restart" class="button hidden">Restart Quiz</button>
     <div id="gift-card" class="hidden">
-      <p class="congrats">Congratulations! You've achieved the highest score!</p>
+      <p class="congrats">Congratulations! You've won a gift card for Code Master's Website!</p>
       <div class="card">
         <img href="www.codemastler.ltd" id="author-img" src="https://codemaster.ltd/cdn/shop/files/codemaster_1.jpg?v=1719057471&width=140" alt="Code Master" class="logo">
         <h3>Code Master Gift Card</h3>
         <p id="discount"></p>
+        <div id="qrcode"></div>
         <h4 class="code" onclick="copyCode()" id="code"> Click To Copy Code!</h4>
       </div>
-      <div id="copy-message" class="copy-message hidden">Code Copied!</div>
     </div>
     <script src="script.js" type="module"></script>
     </body>

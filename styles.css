@@ -88,13 +88,7 @@ h1 {
 
 @keyframes flash {
     0% { opacity: 1; }
-    50% { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-
-@keyframes flash1 {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
+    50% { opacity: 0.1; }
     100% { opacity: 1; }
 }
   
@@ -195,7 +189,6 @@ h1 {
 
 .congrats {
     color: white;
-    animation: flash1 2s infinite;
 }
 
 @media (min-width: 768px) {
@@ -218,4 +211,11 @@ h1 {
     .card {
         width: 300px;
     }
+}
+
+#qrcode {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin: auto;
 }

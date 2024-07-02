@@ -70,13 +70,13 @@ const CMC = 'Code Master Challenge';
 
 function getDiscountMessage(score) {
     if (score === maxScore) {
-        return { message: Config.TwentyOFFMsg, code: Config.TwentyOFF };
+        return { message: Config.TwentyOFFMsg, code: Config.TwentyOFF, link: Config.TwentyOFFLink };
     } else if (score >= halfMaxScore) {
-        return { message: Config.TenOFFMsg, code: Config.TenOFF };
+        return { message: Config.TenOFFMsg, code: Config.TenOFF, link: Config.TenOFFLink };
     } else if (score > 0) {
-        return { message: Config.FiveOFFMsg, code: Config.FiveOFF };
+        return { message: Config.FiveOFFMsg, code: Config.FiveOFF, link: Config.FiveOFFLink };
     } else {
-        return { message: Config.FREEMsg, code: Config.FREE }; // Hard to get discount
+        return { message: Config.FREEMsg, code: Config.FREE, link: Config.FREELink }; // Hard to get discount
     }
 }
 
@@ -96,9 +96,9 @@ document.body.addEventListener('click', () => {
 function loadQuestion() {
     clearInterval(countdown);
     timer = Config.Timer;
-    document.getElementById('timer').style.color = ''; // Reset timer color
+    document.getElementById('timer').style.color = '#21a2f8'; // Reset timer color
     document.getElementById('timer').classList.remove('flash'); // Remove flash class
-    document.getElementById('timer').innerText = 'Questions:' + (currentQuestionIndex + 1) + '/' + questions.length;
+    document.getElementById('timer').innerText = 'Questions: ' + (currentQuestionIndex + 1) + '/' + questions.length;
 
     countdown = setInterval(() => {
         if (timer <= 6) {
@@ -162,7 +162,12 @@ function endGame() {
     Discode.innerText = discountDetails.code;
     document.getElementById('timer').innerText = 'GAME FINISHED';
 
-    if (score > 0) {
+    // Generate QR code
+    const qrContainer = document.getElementById('qrcode');
+    qrContainer.innerHTML = ""; // Clear any existing QR code
+    new QRCode(qrContainer, discountDetails.link);
+
+    if (score > 10) {
         document.getElementById('gift-card').classList.remove('hidden');
     }
 
@@ -177,11 +182,7 @@ function copyCode() {
     const codeElement = document.getElementById('code');
     const code = codeElement.innerText;
     navigator.clipboard.writeText(code).then(() => {
-        const copyMessage = document.getElementById('copy-message');
-        copyMessage.classList.remove('hidden');
-        setTimeout(() => {
-            copyMessage.classList.add('hidden');
-        }, 2000);
+        codeElement.innerText = 'Code Copied!';
     });
 }
 
