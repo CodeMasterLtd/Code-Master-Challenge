@@ -52,9 +52,54 @@ const questions = [
         answer: 0
     },
     {
+        question: "Which of the following is not a programming language?",
+        options: ["Python", "HTML", "Java", "Ruby"],
+        answer: 1
+    },
+    {
+        question: "Which HTML tag is used to define an internal style sheet?",
+        options: ["<style>", "<script>", "<css>", "<link>"],
+        answer: 0
+    },
+    {
+        question: "What does PHP stand for?",
+        options: ["Hypertext Preprocessor", "Pretext Hypertext Processor", "Personal Home Page", "Programming Hypertext Preprocessor"],
+        answer: 0
+    },
+    {
+        question: "Which CSS property controls the text size?",
+        options: ["font-style", "text-size", "font-size", "text-style"],
+        answer: 2
+    },
+    {
+        question: "Which is not a JavaScript data type?",
+        options: ["Undefined", "Number", "Boolean", "Float"],
+        answer: 3
+    },
+    {
+        question: "Which company developed the Angular framework?",
+        options: ["Apple", "Google", "Microsoft", "Facebook"],
+        answer: 1
+    },
+    {
+        question: "What does XML stand for?",
+        options: ["eXtensible Markup Language", "eXecutable Multiple Language", "eXtra Multi-Program Language", "eXamine Multiple Language"],
+        answer: 0
+    },
+    {
+        question: "Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?",
+        options: ["title", "src", "alt", "longdesc"],
+        answer: 2
+    },
+    {
+        question: "In CSS, what does the 'position' property do?",
+        options: ["Sets the type of positioning method", "Changes the background color", "Sets the font size", "Adds a border"],
+        answer: 0
+    },
+    {
         question: "What year was Code Master Founded?",
         options: ["2019", "2021", "2022", "2024"],
-        answer: 3
+        answer: 4
     }
 ];
 
@@ -86,13 +131,6 @@ const discount = document.getElementById('discount');
 const Discode = document.getElementById('code');
 Discode.addEventListener('click', copyCode);
 
-document.body.addEventListener('click', () => {
-    beepSound.play().then(() => {
-        beepSound.pause();
-        beepSound.currentTime = 0;
-    }).catch(error => console.log('Audio playback error:', error));
-}, { once: false });
-
 function loadQuestion() {
     clearInterval(countdown);
     timer = Config.Timer;
@@ -113,7 +151,6 @@ function loadQuestion() {
         }
 
         document.getElementById('timer').innerText = 'Time: ' + --timer;
-        // beepSound.play();
 
         if (timer < 0) {
             clearInterval(countdown);
@@ -123,11 +160,15 @@ function loadQuestion() {
 
     const currentQuestion = questions[currentQuestionIndex];
     document.getElementById('question-text').innerText = currentQuestion.question;
-    const options = document.querySelectorAll('.option');
-    options.forEach((option, index) => {
-        option.innerText = currentQuestion.options[index];
-        option.classList.remove('correct', 'incorrect');
-        option.onclick = () => checkAnswer(option, index);
+    const optionsContainer = document.querySelector('.options');
+    optionsContainer.innerHTML = '';
+
+    currentQuestion.options.forEach((option, index) => {
+        const optionElement = document.createElement('div');
+        optionElement.classList.add('option');
+        optionElement.innerHTML = `<span class="option-index">${index + 1}.</span> ${option}`;
+        optionElement.addEventListener('click', () => checkAnswer(optionElement, index));
+        optionsContainer.appendChild(optionElement);
     });
 }
 
@@ -136,13 +177,13 @@ function checkAnswer(element, selectedIndex) {
     const currentQuestion = questions[currentQuestionIndex];
     const isCorrect = selectedIndex === currentQuestion.answer;
     if (isCorrect) {
-        score += 10;
-        if (timer > 10) score += 5; // Bonus points for quick answers
+        score += 1;
+        if (timer > 10) score += 1; // Bonus points for quick answers
         element.classList.add('correct');
     } else {
         element.classList.add('incorrect');
     }
-    document.getElementById('score').innerText = `Score: ${score}`;
+    document.getElementById('score').innerText = `Your Score: ${score}`;
     setTimeout(nextQuestion, 1000); // Wait a bit before showing the next question
 }
 
@@ -168,7 +209,11 @@ function endGame() {
     new QRCode(qrContainer, discountDetails.link);
 
     if (score > 10) {
-        document.getElementById('gift-card').classList.remove('hidden');
+        const giftCardSection = document.getElementById('gift-card');
+        giftCardSection.classList.remove('hidden');
+
+        // Scroll to the bottom of the screen where the gift card section is displayed
+        giftCardSection.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
 
     const restart = document.getElementById('restart');
@@ -178,6 +223,7 @@ function endGame() {
     });
 }
 
+
 function copyCode() {
     const codeElement = document.getElementById('code');
     const code = codeElement.innerText;
@@ -185,5 +231,7 @@ function copyCode() {
         codeElement.innerText = 'Code Copied!';
     });
 }
+
+document.getElementById('line').innerText = '______________________';
 
 loadQuestion();
