@@ -2,8 +2,9 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #3f3f3f;
-    margin: 0;
-    padding: 0;
+    overflow-x: hidden;
+    margin: 0; /* Ensure no extra margins */
+    padding: 0; /* Ensure no extra padding */
 }
   
 h1 {

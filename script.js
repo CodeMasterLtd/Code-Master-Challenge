@@ -99,19 +99,18 @@ const questions = [
     {
         question: "What year was Code Master Founded?",
         options: ["2019", "2021", "2022", "2024"],
-        answer: 4
+        answer: 3
     }
 ];
 
 let currentQuestionIndex = 0;
 let score = 0;
-let timer = Config.Timer;
+let timer = Config.Timer + 1;
 let countdown;
 const maxScore = questions.length * 10 + (questions.length * 5); // Max score calculation
 const halfMaxScore = maxScore / 2;
 const CM = 'Code Master';
 const CMC = 'Code Master Challenge';
-// const beepSound = new Audio('countdown.mp3'); // Initialize beep sound
 
 function getDiscountMessage(score) {
     if (score === maxScore) {
@@ -133,7 +132,7 @@ Discode.addEventListener('click', copyCode);
 
 function loadQuestion() {
     clearInterval(countdown);
-    timer = Config.Timer;
+    timer = Config.Timer + 1;
     document.getElementById('timer').style.color = '#21a2f8'; // Reset timer color
     document.getElementById('timer').classList.remove('flash'); // Remove flash class
     document.getElementById('timer').innerText = 'Questions: ' + (currentQuestionIndex + 1) + '/' + questions.length;
@@ -160,15 +159,12 @@ function loadQuestion() {
 
     const currentQuestion = questions[currentQuestionIndex];
     document.getElementById('question-text').innerText = currentQuestion.question;
-    const optionsContainer = document.querySelector('.options');
-    optionsContainer.innerHTML = '';
-
-    currentQuestion.options.forEach((option, index) => {
-        const optionElement = document.createElement('div');
-        optionElement.classList.add('option');
-        optionElement.innerHTML = `<span class="option-index">${index + 1}.</span> ${option}`;
-        optionElement.addEventListener('click', () => checkAnswer(optionElement, index));
-        optionsContainer.appendChild(optionElement);
+    
+    const options = document.querySelectorAll('.option');
+    options.forEach((option, index) => {
+        option.innerText = `${index + 1}. ${currentQuestion.options[index]}`;
+        option.classList.remove('correct', 'incorrect');
+        option.onclick = () => checkAnswer(option, index);
     });
 }
 
@@ -178,7 +174,7 @@ function checkAnswer(element, selectedIndex) {
     const isCorrect = selectedIndex === currentQuestion.answer;
     if (isCorrect) {
         score += 1;
-        if (timer > 10) score += 1; // Bonus points for quick answers
+        if (timer > 24) score += 1; // Bonus points for quick answers
         element.classList.add('correct');
     } else {
         element.classList.add('incorrect');
@@ -222,7 +218,6 @@ function endGame() {
         location.reload();
     });
 }
-
 
 function copyCode() {
     const codeElement = document.getElementById('code');
