@@ -1,222 +1,289 @@
-import { Config } from "./config.js";
-
 const questions = [
     {
         question: "What does HTML stand for?",
-        options: ["HyperText Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language", "Home Text Markup Language"],
-        answer: 0
+        answers: [
+            { text: 'HyperText Markup Language', correct: true },
+            { text: 'Home Tool Markup Language', correct: false },
+            { text: 'Hyperlinks and Text Markup Language', correct: false },
+            { text: 'Home Text Markup Language', correct: false },
+        ]
     },
     {
         question: "Which of the following is a JavaScript framework?",
-        options: ["Laravel", "Django", "React", "Rails"],
-        answer: 2
+        answers: [
+            { text: 'Laravel', correct: false },
+            { text: 'Django', correct: false },
+            { text: 'React', correct: true },
+            { text: 'Rails', correct: false },
+        ]
     },
     {
         question: "What is the primary purpose of CSS?",
-        options: ["To structure content on the web", "To style and layout web pages", "To create interactive web applications", "To manage databases"],
-        answer: 1
+        answers: [
+            { text: 'To structure content on the web', correct: false },
+            { text: 'To style and layout web pages', correct: true },
+            { text: 'To create interactive web applications', correct: false },
+            { text: 'To manage databases', correct: false },
+        ]
     },
     {
         question: "Which language is primarily used for web development?",
-        options: ["Python", "Java", "JavaScript", "C++"],
-        answer: 2
+        answers: [
+            { text: 'Python', correct: false },
+            { text: 'Java', correct: false },
+            { text: 'JavaScript', correct: true },
+            { text: 'C++', correct: false },
+        ]
     },
     {
         question: "What does CSS stand for?",
-        options: ["Cascading Style Sheets", "Computer Style Sheets", "Creative Style Sheets", "Colorful Style Sheets"],
-        answer: 0
+        answers: [
+            { text: 'Cascading Style Sheets', correct: true },
+            { text: 'Computer Style Sheets', correct: false },
+            { text: 'Creative Style Sheets', correct: false },
+            { text: 'Colorful Style Sheets', correct: false },
+        ]
     },
     {
         question: "Which company developed the React framework?",
-        options: ["Google", "Facebook", "Microsoft", "Apple"],
-        answer: 1
+        answers: [
+            { text: 'Google', correct: false },
+            { text: 'Facebook', correct: true },
+            { text: 'Microsoft', correct: false },
+            { text: 'Apple', correct: false },
+        ]
     },
     {
         question: "What does JSON stand for?",
-        options: ["JavaScript Object Notation", "JavaScript Online Notation", "Java Syntax Object Notation", "Java Simple Object Notation"],
-        answer: 0
+        answers: [
+            { text: 'JavaScript Object Notation', correct: true },
+            { text: 'JavaScript Online Notation', correct: false },
+            { text: 'Java Syntax Object Notation', correct: false },
+            { text: 'Java Simple Object Notation', correct: false },
+        ]
     },
     {
         question: "Which HTML tag is used to create a hyperlink?",
-        options: ["<link>", "<a>", "<href>", "<hyperlink>"],
-        answer: 1
+        answers: [
+            { text: "&lt;link&gt;", correct: false },
+            { text: '&lt;a&gt;', correct: true },
+            { text: '&lt;href&gt;', correct: false },
+            { text: '&lt;hyperlink&gt;', correct: false },
+        ]
     },
     {
         question: "Which CSS property is used to change the text color of an element?",
-        options: ["font-color", "text-color", "color", "font-style"],
-        answer: 2
+        answers: [
+            { text: 'font-color', correct: false },
+            { text: 'text-color', correct: false },
+            { text: 'color', correct: true },
+            { text: 'font-style', correct: false },
+        ]
     },
     {
         question: "What does SQL stand for?",
-        options: ["Structured Query Language", "Stylish Question Language", "Statement Query Language", "Structured Query Link"],
-        answer: 0
+        answers: [
+            { text: 'Structured Query Language', correct: true },
+            { text: 'Stylish Question Language', correct: false },
+            { text: 'Statement Query Language', correct: false },
+            { text: 'Structured Query Link', correct: false },
+        ]
     },
     {
         question: "Which of the following is not a programming language?",
-        options: ["Python", "HTML", "Java", "Ruby"],
-        answer: 1
+        answers: [
+            { text: 'Python', correct: false },
+            { text: 'HTML', correct: true },
+            { text: 'Java', correct: false },
+            { text: 'Ruby', correct: false },
+        ]
     },
     {
         question: "Which HTML tag is used to define an internal style sheet?",
-        options: ["<style>", "<script>", "<css>", "<link>"],
-        answer: 0
+        answers: [
+            { text: '&lt;style&gt;', correct: true },
+            { text: '&lt;script&gt;', correct: false },
+            { text: '&lt;css&gt;', correct: false },
+            { text: '&lt;link&gt;', correct: false },
+        ]
     },
     {
         question: "What does PHP stand for?",
-        options: ["Hypertext Preprocessor", "Pretext Hypertext Processor", "Personal Home Page", "Programming Hypertext Preprocessor"],
-        answer: 0
+        answers: [
+            { text: 'Hypertext Preprocessor', correct: true },
+            { text: 'Pretext Hypertext Processor', correct: false },
+            { text: 'Personal Home Page', correct: false },
+            { text: 'Programming Hypertext Preprocessor', correct: false },
+        ]
     },
     {
         question: "Which CSS property controls the text size?",
-        options: ["font-style", "text-size", "font-size", "text-style"],
-        answer: 2
+        answers: [
+            { text: 'font-style', correct: false },
+            { text: 'text-size', correct: false },
+            { text: 'font-size', correct: true },
+            { text: 'text-style', correct: false },
+        ]
     },
     {
         question: "Which is not a JavaScript data type?",
-        options: ["Undefined", "Number", "Boolean", "Float"],
-        answer: 3
+        answers: [
+            { text: 'Undefined', correct: false },
+            { text: 'Number', correct: false },
+            { text: 'Boolean', correct: false },
+            { text: 'Float', correct: true },
+        ]
     },
     {
         question: "Which company developed the Angular framework?",
-        options: ["Apple", "Google", "Microsoft", "Facebook"],
-        answer: 1
+        answers: [
+            { text: 'Apple', correct: false },
+            { text: 'Google', correct: true },
+            { text: 'Microsoft', correct: false },
+            { text: 'Facebook', correct: false },
+        ]
     },
     {
         question: "What does XML stand for?",
-        options: ["eXtensible Markup Language", "eXecutable Multiple Language", "eXtra Multi-Program Language", "eXamine Multiple Language"],
-        answer: 0
+        answers: [
+            { text: 'eXtensible Markup Language', correct: true },
+            { text: 'eXecutable Multiple Language', correct: false },
+            { text: 'eXtra Multi-Program Language', correct: false },
+            { text: 'eXamine Multiple Language', correct: false },
+        ]
     },
     {
         question: "Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?",
-        options: ["title", "src", "alt", "longdesc"],
-        answer: 2
+        answers: [
+            { text: 'title', correct: false },
+            { text: 'src', correct: false },
+            { text: 'alt', correct: true },
+            { text: 'longdesc', correct: false },
+        ]
     },
     {
         question: "In CSS, what does the 'position' property do?",
-        options: ["Sets the type of positioning method", "Changes the background color", "Sets the font size", "Adds a border"],
-        answer: 0
+        answers: [
+            { text: 'Sets the type of positioning method', correct: true },
+            { text: 'Changes the background color', correct: false },
+            { text: 'Sets the font size', correct: false },
+            { text: 'Adds a border', correct: false },
+        ]
     },
     {
         question: "What year was Code Master Founded?",
-        options: ["2019", "2021", "2022", "2024"],
-        answer: 3
+        answers: [
+            { text: '2019', correct: false },
+            { text: '2021', correct: false },
+            { text: '2022', correct: false },
+            { text: '2024', correct: true },
+        ]
     }
 ];
 
-let currentQuestionIndex = 0;
-let score = 0;
-let timer = Config.Timer + 1;
-let countdown;
-const maxScore = questions.length * 10 + (questions.length * 5); // Max score calculation
-const halfMaxScore = maxScore / 2;
-const CM = 'Code Master';
-const CMC = 'Code Master Challenge';
-
-function getDiscountMessage(score) {
-    if (score === maxScore) {
-        return { message: Config.TwentyOFFMsg, code: Config.TwentyOFF, link: Config.TwentyOFFLink };
-    } else if (score >= halfMaxScore) {
-        return { message: Config.TenOFFMsg, code: Config.TenOFF, link: Config.TenOFFLink };
-    } else if (score > 0) {
-        return { message: Config.FiveOFFMsg, code: Config.FiveOFF, link: Config.FiveOFFLink };
-    } else {
-        return { message: Config.FREEMsg, code: Config.FREE, link: Config.FREELink }; // Hard to get discount
-    }
-}
-
-document.getElementById('title').textContent = `${CMC} | ${CM}`;
-document.getElementById('titleMain').textContent = `${CMC}`;
+const questionElement = document.getElementById('question');
+const answerButtons = document.getElementById('answer-buttons');
+const nextButton = document.getElementById('next-btn');
+const giftCardElement = document.getElementById('gift-card');
 const discount = document.getElementById('discount');
 const Discode = document.getElementById('code');
 Discode.addEventListener('click', copyCode);
 
-function loadQuestion() {
-    clearInterval(countdown);
-    timer = Config.Timer + 1;
-    document.getElementById('timer').style.color = '#21a2f8'; // Reset timer color
-    document.getElementById('timer').classList.remove('flash'); // Remove flash class
-    document.getElementById('timer').innerText = 'Questions: ' + (currentQuestionIndex + 1) + '/' + questions.length;
+let currentQuestionIndex = 0;
+let score = 0;
+const maxScore = questions.length;
+const halfMaxScore = maxScore / 2;
 
-    countdown = setInterval(() => {
-        if (timer <= 6) {
-            document.getElementById('timer').style.color = 'red';
-            document.getElementById('timer').classList.add('flash');
-        } else if (timer <= 11) {
-            document.getElementById('timer').style.color = 'orange';
-            document.getElementById('timer').classList.remove('flash');
-        } else {
-            document.getElementById('timer').style.color = 'green';
-            document.getElementById('timer').classList.remove('flash');
+function startQuiz(){
+    currentQuestionIndex = 0;
+    score = 0;
+    nextButton.innerHTML = 'Next';
+    giftCardElement.classList.add('hidden');
+    showQuestion();
+}
+
+function showQuestion(){
+    resetState();
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerButtons.appendChild(button);
+        if(answer.correct){
+            button.dataset.correct = answer.correct;
         }
-
-        document.getElementById('timer').innerText = 'Time: ' + --timer;
-
-        if (timer < 0) {
-            clearInterval(countdown);
-            nextQuestion();
-        }
-    }, 1000);
-
-    const currentQuestion = questions[currentQuestionIndex];
-    document.getElementById('question-text').innerText = currentQuestion.question;
-    
-    const options = document.querySelectorAll('.option');
-    options.forEach((option, index) => {
-        option.innerText = `${index + 1}. ${currentQuestion.options[index]}`;
-        option.classList.remove('correct', 'incorrect');
-        option.onclick = () => checkAnswer(option, index);
+        button.addEventListener('click', selectAnswer);
     });
 }
 
-function checkAnswer(element, selectedIndex) {
-    clearInterval(countdown);
-    const currentQuestion = questions[currentQuestionIndex];
-    const isCorrect = selectedIndex === currentQuestion.answer;
-    if (isCorrect) {
-        score += 1;
-        if (timer > 24) score += 1; // Bonus points for quick answers
-        element.classList.add('correct');
-    } else {
-        element.classList.add('incorrect');
-    }
-    document.getElementById('score').innerText = `Your Score: ${score}`;
-    setTimeout(nextQuestion, 1000); // Wait a bit before showing the next question
-}
-
-function nextQuestion() {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length) {
-        loadQuestion();
-    } else {
-        endGame();
+function resetState(){
+    nextButton.style.display = "none";
+    while(answerButtons.firstChild){
+        answerButtons.removeChild(answerButtons.firstChild);
     }
 }
 
-function endGame() {
-    alert(`Game over! Your final score is ${score}`);
+function selectAnswer(e){
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === 'true';
+    if(isCorrect){
+        selectedBtn.classList.add('correct');
+        score++;
+    }else{
+        selectedBtn.classList.add('incorrect');
+    }
+    Array.from(answerButtons.children).forEach(button => {
+        if(button.dataset.correct === 'true'){
+            button.classList.add('correct');
+        }
+        button.disabled = true;
+    });
+    nextButton.style.display = "block";
+}
+
+function getDiscountMessage(score) {
+    if (score === maxScore) {
+        return { message: '20% OFF ALL PRODUCTS', code: '20%/CM2024/CMC', link: 'https://codemaster.ltd/discount/20%2525%2FCM2024%2FCMC' };
+    } else if (score >= halfMaxScore && score < maxScore) {
+        return { message: '10% OFF ALL PRODUCTS', code: '10%/CM2024/CMC', link: 'https://codemaster.ltd/discount/10%2525%2FCM2024%2FCMC' };
+    } else if (score >= 0 && score < halfMaxScore) {
+        return { message: '5% OFF ALL PRODUCTS', code: '5%/CM2024/CMC', link: 'https://codemaster.ltd/discount/5%2525%2FCM2024%2FCMC' };
+    } else {
+        return { message: 'FREE ON ALL PRODUCTS', code: 'FREE/CM2024/CMC', link: 'https://codemaster.ltd/discount/FREE%2FCM2024%2FCMC' };
+    }
+}
+
+function showScore() {
+    resetState();
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+    nextButton.innerHTML = 'Play Again';
+    nextButton.style.display = "block";
+    nextButton.removeEventListener('click', handleNextButton);
+    nextButton.addEventListener('click', resetQuiz);
+
     const discountDetails = getDiscountMessage(score);
     discount.innerText = discountDetails.message;
     Discode.innerText = discountDetails.code;
-    document.getElementById('timer').innerText = 'GAME FINISHED';
 
     // Generate QR code
     const qrContainer = document.getElementById('qrcode');
     qrContainer.innerHTML = ""; // Clear any existing QR code
     new QRCode(qrContainer, discountDetails.link);
 
-    if (score > 10) {
-        const giftCardSection = document.getElementById('gift-card');
-        giftCardSection.classList.remove('hidden');
-
-        // Scroll to the bottom of the screen where the gift card section is displayed
-        giftCardSection.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    if (score > 1) {
+        giftCardElement.classList.remove('hidden');
+        giftCardElement.scrollIntoView({ behavior: 'smooth', block: 'end' });
     }
+}
 
-    const restart = document.getElementById('restart');
-    restart.classList.remove('hidden');
-    restart.addEventListener('click', () => {
-        location.reload();
-    });
+function resetQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    startQuiz();
 }
 
 function copyCode() {
@@ -227,6 +294,15 @@ function copyCode() {
     });
 }
 
-document.getElementById('line').innerText = '______________________';
+function handleNextButton(){
+    currentQuestionIndex++;
+    if(currentQuestionIndex < questions.length){
+        showQuestion();
+    }else{
+        showScore();
+    }
+}
 
-loadQuestion();
+nextButton.addEventListener('click', handleNextButton);
+
+startQuiz();

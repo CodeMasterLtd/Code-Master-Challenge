@@ -2,38 +2,38 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Code Master Challenge | Code Master</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="https://codemaster.ltd/cdn/shop/files/codemaster_1.jpg?v=1719057471&width=140" type="image/png">
 <link rel="stylesheet" href="styles.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<title id="title"></title>
 </head>
 <body>
-    <img href="www.codemastler.ltd" id="author-img" src="https://codemaster.ltd/cdn/shop/files/codemaster_1.jpg?v=1719057471&width=140" alt="Code Master" class="logo1">
-    <h1 id="titleMain"></h1>
-    <h1 id="line" class="line"></h1>
-    <div class="question">
-      <p id="question-text"></p>
-      <div class="options">
-        <div class="option" onclick="checkAnswer(this, 0)"></div>
-        <div class="option" onclick="checkAnswer(this, 1)"></div>
-        <div class="option" onclick="checkAnswer(this, 2)"></div>
-        <div class="option" onclick="checkAnswer(this, 3)"></div>
-      </div>
-      <div class="timer" id="timer"></div>
+    <div class="app">
+        <img src="https://codemaster.ltd/cdn/shop/files/codemaster_1.jpg?v=1719057471&width=140" class="logo">
+        <h1>Code Master Challenge</h1>
+        <div class="quiz">
+            <h2 id="question"></h2>
+            <div id="answer-buttons">
+                <button class="btn"></button>
+                <button class="btn"></button>
+                <button class="btn"></button>
+                <button class="btn"></button>
+            </div>
+            <button id="next-btn">Next</button>
+        </div>
+        <div id="gift-card" class="hidden">
+            <p class="congrats">Congratulations! You've won a gift card for Code Master's Website!</p>
+            <div class="card">
+                <img href="https://www.codemaster.ltd" id="author-img" src="https://codemaster.ltd/cdn/shop/files/codemaster_1.jpg?v=1719057471&width=140" alt="Code Master" class="logo">
+                <h3>Code Master Gift Card</h3>
+                <p id="discount">Use the code below to get a discount:</p>
+                <div id="qrcode"></div>
+                <h4 class="code" onclick="copyCode()" id="code">Click To Copy Code!</h4>
+            </div>
+        </div>
+        <div class="fot">&copy; 2024 <a href="https://www.codemaster.ltd">Code Master</a>. All rights reserved.</div>
     </div>
-    <div id="score"></div>
-    <button id="restart" class="button hidden">Restart Quiz</button>
-    <div id="gift-card" class="hidden">
-      <p class="congrats">Congratulations! You've won a gift card for Code Master's Website!</p>
-      <div class="card">
-        <img href="www.codemastler.ltd" id="author-img" src="https://codemaster.ltd/cdn/shop/files/codemaster_1.jpg?v=1719057471&width=140" alt="Code Master" class="logo">
-        <h3>Code Master Gift Card</h3>
-        <p id="discount"></p>
-        <div id="qrcode"></div>
-        <h4 class="code" onclick="copyCode()" id="code"> Click To Copy Code!</h4>
-      </div>
-    </div>
-    <script src="script.js" type="module"></script>
-    </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="script.js"></script>
+</body>
 </html>
