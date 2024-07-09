@@ -11,7 +11,9 @@
     <div class="app">
         <img src="https://codemaster.ltd/cdn/shop/files/codemaster_1.jpg?v=1719057471&width=140" class="logo">
         <h1>Code Master Challenge</h1>
-        <div class="quiz">
+        <p id="welcome" class="hidden"></p>
+        <button id="start-btn" class="hidden">Start Challenge</button>
+        <div class="quiz hidden">
             <h2 id="question"></h2>
             <div id="answer-buttons">
                 <button class="btn"></button>
@@ -19,21 +21,22 @@
                 <button class="btn"></button>
                 <button class="btn"></button>
             </div>
-            <button id="next-btn">Next</button>
+            <button id="next-btn" class="hidden">Next</button>
         </div>
         <div id="gift-card" class="hidden">
-            <p class="congrats">Congratulations! You've won a gift card for Code Master's Website!</p>
+            <p class="congrats">Congratulations! You've won a gift card for <a href="https://www.codemaster.ltd">Code Master's</a> shop!</p>
             <div class="card">
                 <img href="https://www.codemaster.ltd" id="author-img" src="https://codemaster.ltd/cdn/shop/files/codemaster_1.jpg?v=1719057471&width=140" alt="Code Master" class="logo">
                 <h3>Code Master Gift Card</h3>
-                <p id="discount">Use the code below to get a discount:</p>
-                <div id="qrcode"></div>
+                <p id="discount"></p>
                 <h4 class="code" onclick="copyCode()" id="code">Click To Copy Code!</h4>
             </div>
         </div>
         <div class="fot">&copy; 2024 <a href="https://www.codemaster.ltd">Code Master</a>. All rights reserved.</div>
+        <div id="version"></div>
     </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <script src="script.js"></script>
+<script src="version.js" type="module"></script>
 </body>
 </html>

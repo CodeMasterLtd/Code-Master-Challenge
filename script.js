@@ -181,13 +181,25 @@ const questions = [
     }
 ];
 
+const startButton = document.getElementById('start-btn');
+const welcome = document.getElementById('welcome')
 const questionElement = document.getElementById('question');
 const answerButtons = document.getElementById('answer-buttons');
 const nextButton = document.getElementById('next-btn');
 const giftCardElement = document.getElementById('gift-card');
 const discount = document.getElementById('discount');
-const Discode = document.getElementById('code');
-Discode.addEventListener('click', copyCode);
+const discode = document.getElementById('code');
+
+discode.addEventListener('click', copyCode);
+
+startButton.addEventListener('click', startQuiz);
+
+function Game(){
+    startButton.classList.remove('hidden');
+    startButton.style.display = "block";
+    welcome.style.display = "block";
+    welcome.innerText = "You have " + questions.length + " questions to answer! Based on your final score, you could win a gift card for our shop. Good luck!";
+}
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -195,10 +207,13 @@ const maxScore = questions.length;
 const halfMaxScore = maxScore / 2;
 
 function startQuiz(){
+    startButton.style.display = "none";
+    welcome.style.display = "none";
+    startButton.classList.add('hidden');
+    document.querySelector('.quiz').classList.remove('hidden');
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = 'Next';
-    giftCardElement.classList.add('hidden');
     showQuestion();
 }
 
@@ -206,7 +221,7 @@ function showQuestion(){
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
-    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+    questionElement.innerHTML = " (" + questionNo + "). " + currentQuestion.question;
 
     currentQuestion.answers.forEach(answer => {
         const button = document.createElement("button");
@@ -247,18 +262,19 @@ function selectAnswer(e){
 
 function getDiscountMessage(score) {
     if (score === maxScore) {
-        return { message: '20% OFF ALL PRODUCTS', code: '20%/CM2024/CMC', link: 'https://codemaster.ltd/discount/20%2525%2FCM2024%2FCMC' };
+        return { message: '20% OFF ALL PRODUCTS', code: '20%/CM2024/CMC'};
     } else if (score >= halfMaxScore && score < maxScore) {
-        return { message: '10% OFF ALL PRODUCTS', code: '10%/CM2024/CMC', link: 'https://codemaster.ltd/discount/10%2525%2FCM2024%2FCMC' };
+        return { message: '10% OFF ALL PRODUCTS', code: '10%/CM2024/CMC'};
     } else if (score >= 0 && score < halfMaxScore) {
-        return { message: '5% OFF ALL PRODUCTS', code: '5%/CM2024/CMC', link: 'https://codemaster.ltd/discount/5%2525%2FCM2024%2FCMC' };
+        return { message: '5% OFF ALL PRODUCTS', code: '5%/CM2024/CMC'};
     } else {
-        return { message: 'FREE ON ALL PRODUCTS', code: 'FREE/CM2024/CMC', link: 'https://codemaster.ltd/discount/FREE%2FCM2024%2FCMC' };
+        return { message: 'FREE ON ALL PRODUCTS', code: 'FREE/CM2024/CMC'};
     }
 }
 
 function showScore() {
     resetState();
+    questionElement.style.textAlign = 'center';
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
     nextButton.innerHTML = 'Play Again';
     nextButton.style.display = "block";
@@ -267,12 +283,7 @@ function showScore() {
 
     const discountDetails = getDiscountMessage(score);
     discount.innerText = discountDetails.message;
-    Discode.innerText = discountDetails.code;
-
-    // Generate QR code
-    const qrContainer = document.getElementById('qrcode');
-    qrContainer.innerHTML = ""; // Clear any existing QR code
-    new QRCode(qrContainer, discountDetails.link);
+    discode.innerText = discountDetails.code;
 
     if (score > 1) {
         giftCardElement.classList.remove('hidden');
@@ -281,16 +292,21 @@ function showScore() {
 }
 
 function resetQuiz() {
+    giftCardElement.classList.add('hidden');
     currentQuestionIndex = 0;
     score = 0;
-    startQuiz();
+    location.reload();
 }
 
 function copyCode() {
+    const originalText = 'Click To Copy Code!';
     const codeElement = document.getElementById('code');
-    const code = codeElement.innerText;
+    const code = codeElement.innerHTML;
     navigator.clipboard.writeText(code).then(() => {
-        codeElement.innerText = 'Code Copied!';
+        codeElement.innerText = 'Discount Code Copied!';
+        setTimeout(() => {
+            codeElement.innerText = originalText;
+        }, 2000);
     });
 }
 
@@ -305,4 +321,4 @@ function handleNextButton(){
 
 nextButton.addEventListener('click', handleNextButton);
 
-startQuiz();
+Game();
